@@ -24,7 +24,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.util.ShapeUtilities;
 
 import main.Epidemics;
-import main.Person;
+import main.SimulatedPerson;
 
 @SuppressWarnings("serial")
 public class ModelVisualization extends JFrame {
@@ -35,12 +35,12 @@ public class ModelVisualization extends JFrame {
     private final XYSeries recovered = new XYSeries("Recovered");
 	//imported variables
     private int populationSize, lattice;
-	ArrayList<Person> population = new ArrayList<Person>();
+	ArrayList<SimulatedPerson> population = new ArrayList<SimulatedPerson>();
 	
 	public JPanel control;
 	public MyButton moveButton;  
 
-    public ModelVisualization(String s, int latt, int popSize, int lat, ArrayList<Person> pop ) {
+    public ModelVisualization(String s, int latt, int popSize, int lat, ArrayList<SimulatedPerson> pop ) {
         super(s);
         //init same variables
         populationSize = popSize;
@@ -68,7 +68,7 @@ public class ModelVisualization extends JFrame {
         this.add(control, BorderLayout.SOUTH);
     }
 
-    public void newPoints(ArrayList<Person> pop){
+    public void newPoints(ArrayList<SimulatedPerson> pop){
     	population = pop;
     }
     

@@ -6,6 +6,5 @@ A SIR Disease Spreading agent model
 Dependencies
 ============
 
-    jfree(included in 'lib')
-    jcommon
-    Eclipse
+    jfree(included in 'jf')
+    jcommon(included in 'jf')

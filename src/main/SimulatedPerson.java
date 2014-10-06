@@ -1,20 +1,20 @@
 package main;
 import java.lang.Math;
 
-public class Person {
+public class SimulatedPerson {
 	public int status;
 	public int[] position = new int[2];
 	public int positionValue = 0;
 	private double sizeOfArea = 20;
 	
-	public Person(){
+	public SimulatedPerson(){
 		status = 1;
 		position[0] = 1 + (int)(Math.random()*sizeOfArea); 
 		position[1] = 1 + (int)(Math.random()*sizeOfArea);
 		positionValue();
 	}
 	
-	public Person(int lattice){
+	public SimulatedPerson(int lattice){
 		sizeOfArea = lattice;
 		status = 1;
 		position[0] = 1 + (int)(Math.random()*sizeOfArea); 

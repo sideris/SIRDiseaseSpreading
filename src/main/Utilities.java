@@ -2,7 +2,7 @@ package main;
 
 import java.util.Random;
 
-public class FuncLib {
+public class Utilities {
 	// Implementing Fisher–Yates shuffle
 	public static int[] shuffleArray(int[] ar)	  {
 		Random rnd = new Random();

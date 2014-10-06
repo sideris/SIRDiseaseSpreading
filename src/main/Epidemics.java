@@ -4,20 +4,20 @@ import graphics.MakePhase;
 import graphics.ModelVisualization;
 import graphics.PopulationDynamicsPlot;
 import graphics.RInfPlot;
-
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.swing.JFrame;
-@SuppressWarnings("unused")
+
 public class Epidemics{
+	//simulation variables
 	private static final int lattice = 100, populationSize = 1000; 
 	public static double delta = 0.3, beta = 0.5, gamma = 0.005, infectRatio = 0.01; 
+	/** Lists  **/
 	//1.population List 
-	private static ArrayList<Person> population = new ArrayList<Person>();
+	private static ArrayList<SimulatedPerson> population = new ArrayList<SimulatedPerson>();
 	//2.infection and recovered lists.
 	private static ArrayList<Integer> infected = new ArrayList<Integer>();
 	private static ArrayList<Integer> infectedPosition = new ArrayList<Integer>();
@@ -46,19 +46,19 @@ public class Epidemics{
 	
 	private static void createPopulation(int size, double ratio, int lat){
 		//create the agents and add them to the list
-		for(int i = 0;i<size;i++){
-			Person a = new Person(lat);
-			population.add( a );
-			positionValues[i] = a.positionValue;
+		for(int i = 0; i<size; i++){
+			SimulatedPerson person = new SimulatedPerson(lat);
+			population.add( person );
+			positionValues[i] = person.positionValue;
 		}
 		//creating lists to make a random permutation
 		int infectionSize = (int) (populationSize*ratio);
 		int[] lista = new int[populationSize];
-		for(int i=0;i<populationSize;i++){
+		for(int i=0; i<populationSize; i++){
 			lista[i] = i;
 		}
-		//(Everyday I'm) shuffling
-		lista = FuncLib.shuffleArray(lista);
+		
+		lista = Utilities.shuffleArray(lista); //(Everyday I'm) shuffling
 		//infect
 		for(int i = 0;i<infectionSize;i++){
 			population.get(lista[i]).status=2;
